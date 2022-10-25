@@ -10,3 +10,54 @@ char file_name[50];
         {
             ...
         }
+string str;
+string key_word[32] =
+{
+    "auto","break","case","char","const","continue","default","do ",
+    "double","else","enum","extern","float","for","goto","if","int",
+    "long","register","return","short","signed","sizeof","stastic",
+    "struct","switch","typedef","union","unsigned","void","volatile","while"
+};
+int Judge1(string str,string str1)    
+{
+    int Judge_letter(char str);
+    int location=str.find(str1,0);
+    int len=str1.length();
+    if(location!=string::npos)
+    {
+        if(location==0)
+        {
+            if(Judge_letter(str[location+len])==0)
+                return 1;
+            else 
+                return 0;
+        }
+        else
+        {
+            if(Judge_letter(str[location-1])==0&&Judge_letter(str[location+len])==0)
+                return 1;
+            else
+                return 0;
+        }
+    }
+    return 0;
+}
+ 
+int Judge_letter(char str)            
+{
+    if(str=='_'){
+        return 0; 
+       }
+        
+    if(str>='A'&&str<='Z'){
+        return 1;
+    }
+    if(str>='a'&&str<='z'){
+        return 1;
+    }
+    if(str>='0'&&str<='9'){
+        
+        return 0;
+    }
+    return 0;
+}
