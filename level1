@@ -1,0 +1,12 @@
+char file_name[50];
+    cin>>file_name;
+    ifstream myfile(file_name);        //open the file
+    string temp;    
+    while(getline(myfile,temp))        //read line by line 
+    {
+        istringstream is(temp);    
+        string text;
+        while(is>>text)             //remove the space
+        {
+            ...
+        }
